@@ -180,6 +180,8 @@ module FastJsonapi
           serializer: compute_serializer_name(serializer_key),
           relationship_type: :has_many,
           cached: options[:cached] || false,
+          link_only: options[:link_only],
+          link_generator: options[:link_generator],
           polymorphic: fetch_polymorphic_option(options)
         }
         add_relationship(name, relationship)
@@ -199,6 +201,8 @@ module FastJsonapi
           serializer: compute_serializer_name(serializer_key),
           relationship_type: :belongs_to,
           cached: options[:cached] || true,
+          link_only: options[:link_only],
+          link_generator: options[:link_generator],
           polymorphic: fetch_polymorphic_option(options)
         })
       end
@@ -217,6 +221,8 @@ module FastJsonapi
           serializer: compute_serializer_name(serializer_key),
           relationship_type: :has_one,
           cached: options[:cached] || false,
+          link_only: options[:link_only],
+          link_generator: options[:link_generator],
           polymorphic: fetch_polymorphic_option(options)
         })
       end
